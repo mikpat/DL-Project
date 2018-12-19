@@ -1,0 +1,42 @@
+Sender: LSF System <lsfadmin@lo-a2-028>
+Subject: Job 1040915: <python train.py> in cluster <leonhard> Exited
+
+Job <python train.py> was submitted from host <lo-login-01> by user <oameln> in cluster <leonhard> at Wed Dec 19 21:32:20 2018
+Job was executed on host(s) <lo-a2-028>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Wed Dec 19 21:32:42 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Wed Dec 19 21:32:42 2018
+Terminated at Wed Dec 19 21:32:44 2018
+Results reported at Wed Dec 19 21:32:44 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python train.py
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   0.36 sec.
+    Max Memory :                                 43 MB
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               981.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   26 sec.
+    Turnaround time :                            24 sec.
+
+The output (if any) follows:
+
+RuntimeError: module compiled against API version 0xc but this version of numpy is 0xb
+Traceback (most recent call last):
+  File "train.py", line 3, in <module>
+    import pandas as pd
+  File "/cluster/apps/python/2.7.14/lib64/python2.7/site-packages/pandas/__init__.py", line 35, in <module>
+    "the C extensions first.".format(module))
+ImportError: C extension: numpy.core.multiarray failed to import not built. If you want to import pandas from the source directory, you may need to run 'python setup.py build_ext --inplace --force' to build the C extensions first.
