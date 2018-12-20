@@ -134,7 +134,7 @@ ids_train = df_train['img'].map(lambda s: s.split('.')[0])
 
 ids_train_split, ids_valid_split = train_test_split(ids_train, test_size=0.2, random_state=42)
 
-num_iter_models = 3
+num_iter_models = 1
 
 for i in range(len(models)):
     for j in range(num_iter_models):

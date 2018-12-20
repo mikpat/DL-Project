@@ -11,11 +11,9 @@ orig_height = 1280
 threshold = 0.5
 
 
-model_factory = [
-                 get_unet_1024_gcn_up_k_5(), get_unet_1024_gcn_down_up_k_5()]
+model_factory = [get_unet_1024_src_3()]
 
-model_names = [
-                "unet_1024_gcn_up_k_5", "unet_1024_gcn_down_up_k_5"]
+model_names = ["unet_1024_src_3"]
 
 '''
 model_factory = [get_unet_1024_src_3(), get_unet_1024_src_5(), get_unet_1024_gcn_down_k_5(),
