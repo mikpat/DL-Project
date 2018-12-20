@@ -9,15 +9,8 @@ import params
 input_size = params.input_size
 epochs = params.max_epochs
 batch_size = params.batch_size
-model = params.model_factory()
 
 df_train = pd.read_csv('input/train_masks.csv')
-ids_train = df_train['img'].map(lambda s: s.split('.')[0])
-
-ids_train_split, ids_valid_split = train_test_split(ids_train, test_size=0.2, random_state=42)
-
-print('Training on {} samples'.format(len(ids_train_split)))
-print('Validating on {} samples'.format(len(ids_valid_split)))
 
 
 def randomHueSaturationValue(image, hue_shift_limit=(-180, 180),
@@ -134,25 +127,37 @@ def valid_generator():
             yield x_batch, y_batch
 
 
-callbacks = [EarlyStopping(monitor='val_loss',
-                           patience=8,
-                           verbose=1,
-                           min_delta=1e-4),
-             ReduceLROnPlateau(monitor='val_loss',
-                               factor=0.1,
-                               patience=4,
-                               verbose=1,
-                               epsilon=1e-4),
-             ModelCheckpoint(monitor='val_loss',
-                             filepath='weights/best_weights.hdf5',
-                             save_best_only=True,
-                             save_weights_only=True),
-             TensorBoard(log_dir='logs')]
+models = params.model_factory
+m_names = params.model_names
 
-model.fit_generator(generator=train_generator(),
-                    steps_per_epoch=np.ceil(float(len(ids_train_split)) / float(batch_size)),
-                    epochs=epochs,
-                    verbose=2,
-                    callbacks=callbacks,
-                    validation_data=valid_generator(),
-                    validation_steps=np.ceil(float(len(ids_valid_split)) / float(batch_size)))
+ids_train = df_train['img'].map(lambda s: s.split('.')[0])
+
+ids_train_split, ids_valid_split = train_test_split(ids_train, test_size=0.2, random_state=42)
+
+num_iter_models = 3
+
+for i in range(len(models)):
+    for j in range(num_iter_models):
+        callbacks = [EarlyStopping(monitor='val_loss',
+                                   patience=8,
+                                   verbose=1,
+                                   min_delta=1e-4),
+                     ReduceLROnPlateau(monitor='val_loss',
+                                       factor=0.1,
+                                       patience=4,
+                                       verbose=1,
+                                       epsilon=1e-4),
+                     ModelCheckpoint(monitor='val_loss',
+                                     filepath='weights/best_weights.hdf5',
+                                     save_best_only=True,
+                                     save_weights_only=True),
+                     TensorBoard(log_dir="logs/{}".format(m_names[i]+"_iter_"+str(j)))]
+
+        models[i].fit_generator(generator=train_generator(),
+                            steps_per_epoch=np.ceil(float(len(ids_train_split)) / float(batch_size)),
+                            epochs=epochs,
+                            verbose=2,
+                            callbacks=callbacks,
+                            validation_data=valid_generator(),
+                            validation_steps=np.ceil(float(len(ids_valid_split)) / float(batch_size)))
+
