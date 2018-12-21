@@ -1,0 +1,36 @@
+Sender: LSF System <lsfadmin@lo-a2-015>
+Subject: Job 1043013: <git commit -m fixing> in cluster <leonhard> Exited
+
+Job <git commit -m fixing> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Fri Dec 21 10:34:34 2018
+Job was executed on host(s) <lo-a2-015>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Fri Dec 21 10:34:37 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 21 10:34:37 2018
+Terminated at Fri Dec 21 10:53:13 2018
+Results reported at Fri Dec 21 10:53:13 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+git commit -m fixing
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   40.24 sec.
+    Max Memory :                                 286 MB
+    Average Memory :                             178.18 MB
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               738.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                24
+    Run time :                                   1123 sec.
+    Turnaround time :                            1119 sec.
+
+The output (if any) follows:
+
