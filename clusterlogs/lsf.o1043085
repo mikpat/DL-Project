@@ -1,0 +1,35 @@
+Sender: LSF System <lsfadmin@lo-a2-028>
+Subject: Job 1043085: <mv /cluster/scratch/oameln/DL-Project/input/test/ /cluster/scratch/oameln/test> in cluster <leonhard> Done
+
+Job <mv /cluster/scratch/oameln/DL-Project/input/test/ /cluster/scratch/oameln/test> was submitted from host <lo-login-01> by user <oameln> in cluster <leonhard> at Fri Dec 21 13:17:17 2018
+Job was executed on host(s) <lo-a2-028>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Fri Dec 21 13:17:43 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 21 13:17:43 2018
+Terminated at Fri Dec 21 13:17:45 2018
+Results reported at Fri Dec 21 13:17:45 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mv /cluster/scratch/oameln/DL-Project/input/test/ /cluster/scratch/oameln/test
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.07 sec.
+    Max Memory :                                 2 MB
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               1022.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   24 sec.
+    Turnaround time :                            28 sec.
+
+The output (if any) follows:
+

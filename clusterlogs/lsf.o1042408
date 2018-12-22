@@ -1,0 +1,36 @@
+Sender: LSF System <lsfadmin@lo-a2-028>
+Subject: Job 1042408: <python_gpu train.py> in cluster <leonhard> Exited
+
+Job <python_gpu train.py> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Thu Dec 20 16:03:34 2018
+Job was executed on host(s) <lo-a2-028>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Thu Dec 20 16:03:41 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Thu Dec 20 16:03:41 2018
+Terminated at Thu Dec 20 16:03:42 2018
+Results reported at Thu Dec 20 16:03:42 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python_gpu train.py
+------------------------------------------------------------
+
+Exited with exit code 127.
+
+Resource usage summary:
+
+    CPU time :                                   0.07 sec.
+    Max Memory :                                 2 MB
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               1022.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   28 sec.
+    Turnaround time :                            8 sec.
+
+The output (if any) follows:
+
+/cluster/shadow/.lsbatch/1545318214.1042408: line 8: python_gpu: command not found

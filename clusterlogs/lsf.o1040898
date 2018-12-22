@@ -1,0 +1,39 @@
+Sender: LSF System <lsfadmin@lo-a2-025>
+Subject: Job 1040898: <python train.py> in cluster <leonhard> Exited
+
+Job <python train.py> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Wed Dec 19 21:08:19 2018
+Job was executed on host(s) <lo-a2-025>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Wed Dec 19 21:08:42 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Wed Dec 19 21:08:42 2018
+Terminated at Wed Dec 19 21:08:53 2018
+Results reported at Wed Dec 19 21:08:53 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python train.py
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   2.13 sec.
+    Max Memory :                                 126 MB
+    Average Memory :                             67.00 MB
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               898.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                4
+    Run time :                                   35 sec.
+    Turnaround time :                            34 sec.
+
+The output (if any) follows:
+
+Traceback (most recent call last):
+  File "train.py", line 4, in <module>
+    from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, TensorBoard
+ImportError: No module named keras.callbacks

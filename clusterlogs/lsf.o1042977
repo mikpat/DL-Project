@@ -1,0 +1,35 @@
+Sender: LSF System <lsfadmin@lo-a2-025>
+Subject: Job 1042977: <git add .> in cluster <leonhard> Done
+
+Job <git add .> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Fri Dec 21 01:52:45 2018
+Job was executed on host(s) <lo-a2-025>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Fri Dec 21 01:53:13 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 21 01:53:13 2018
+Terminated at Fri Dec 21 02:56:45 2018
+Results reported at Fri Dec 21 02:56:45 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+git add .
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   368.81 sec.
+    Max Memory :                                 1024 MB
+    Average Memory :                             970.04 MB
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               0.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                4
+    Run time :                                   3811 sec.
+    Turnaround time :                            3840 sec.
+
+The output (if any) follows:
+

@@ -1,0 +1,44 @@
+Sender: LSF System <lsfadmin@lo-s4-011>
+Subject: Job 1043138: <python train.py> in cluster <leonhard> Exited
+
+Job <python train.py> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Fri Dec 21 15:27:17 2018
+Job was executed on host(s) <lo-s4-011>, in queue <gpu.4h>, as user <oameln> in cluster <leonhard> at Fri Dec 21 15:27:23 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 21 15:27:23 2018
+Terminated at Fri Dec 21 16:57:42 2018
+Results reported at Fri Dec 21 16:57:42 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python train.py
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   7483.79 sec.
+    Max Memory :                                 29567 MB
+    Average Memory :                             17780.78 MB
+    Total Requested Memory :                     50000.00 MB
+    Delta Memory :                               20433.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                57
+    Run time :                                   5419 sec.
+    Turnaround time :                            5425 sec.
+
+The output (if any) follows:
+
+Using TensorFlow backend.
+2018-12-21 15:27:31.848216: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+/cluster/home/oameln/.local/lib64/python2.7/site-packages/keras/callbacks.py:1065: UserWarning: `epsilon` argument is deprecated and will be removed, use `min_delta` instead.
+  warnings.warn('`epsilon` argument is deprecated and '
+WARNING:tensorflow:From /cluster/home/oameln/.local/lib64/python2.7/site-packages/tensorflow/contrib/learn/python/learn/datasets/base.py:198: retry (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use the retry module or similar alternatives.
+User defined signal 2

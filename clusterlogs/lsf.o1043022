@@ -1,0 +1,36 @@
+Sender: LSF System <lsfadmin@lo-a2-027>
+Subject: Job 1043022: <rusage[mem=100000] git rm --cached -r input/test> in cluster <leonhard> Exited
+
+Job <rusage[mem=100000] git rm --cached -r input/test> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Fri Dec 21 10:54:15 2018
+Job was executed on host(s) <lo-a2-027>, in queue <normal.4h>, as user <oameln> in cluster <leonhard> at Fri Dec 21 10:54:38 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 21 10:54:38 2018
+Terminated at Fri Dec 21 10:54:40 2018
+Results reported at Fri Dec 21 10:54:40 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+rusage[mem=100000] git rm --cached -r input/test
+------------------------------------------------------------
+
+Exited with exit code 127.
+
+Resource usage summary:
+
+    CPU time :                                   0.06 sec.
+    Max Memory :                                 2 MB
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               1022.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   26 sec.
+    Turnaround time :                            25 sec.
+
+The output (if any) follows:
+
+/cluster/shadow/.lsbatch/1545386055.1043022: line 8: rusage[mem=100000]: command not found
