@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, TensorBoard
 from sklearn.model_selection import train_test_split
+import sys
 
 import params
 
@@ -134,30 +135,27 @@ ids_train = df_train['img'].map(lambda s: s.split('.')[0])
 
 ids_train_split, ids_valid_split = train_test_split(ids_train, test_size=0.2, random_state=42)
 
-num_iter_models = 1
 
-for i in range(len(models)):
-    for j in range(num_iter_models):
-        callbacks = [EarlyStopping(monitor='val_loss',
-                                   patience=8,
-                                   verbose=1,
-                                   min_delta=1e-4),
-                     ReduceLROnPlateau(monitor='val_loss',
-                                       factor=0.1,
-                                       patience=4,
-                                       verbose=1,
-                                       epsilon=1e-4),
-                     ModelCheckpoint(monitor='val_loss',
-                                     filepath='weights/best_weights.hdf5',
-                                     save_best_only=True,
-                                     save_weights_only=True),
-                     TensorBoard(log_dir="logs/{}".format(m_names[i]+"_iter_"+str(j)))]
+callbacks = [EarlyStopping(monitor='val_loss',
+                           patience=8,
+                           verbose=1,
+                           min_delta=1e-4),
+             ReduceLROnPlateau(monitor='val_loss',
+                               factor=0.1,
+                               patience=4,
+                               verbose=1,
+                               epsilon=1e-4),
+             ModelCheckpoint(monitor='val_loss',
+                             filepath='weights/best_weights.hdf5',
+                             save_best_only=True,
+                             save_weights_only=True),
+             TensorBoard(log_dir="logs/{}".format(str(sys.argv[1])))]
 
-        models[i].fit_generator(generator=train_generator(),
-                            steps_per_epoch=np.ceil(float(len(ids_train_split)) / float(batch_size)),
-                            epochs=epochs,
-                            verbose=2,
-                            callbacks=callbacks,
-                            validation_data=valid_generator(),
-                            validation_steps=np.ceil(float(len(ids_valid_split)) / float(batch_size)))
+models[m_names.index(str(sys.argv[1]))].fit_generator(generator=train_generator(),
+                                    steps_per_epoch=np.ceil(float(len(ids_train_split)) / float(batch_size)),
+                                    epochs=epochs,
+                                    verbose=2,
+                                    callbacks=callbacks,
+                                    validation_data=valid_generator(),
+                                    validation_steps=np.ceil(float(len(ids_valid_split)) / float(batch_size)))
 
