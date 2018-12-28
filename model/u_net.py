@@ -1,6 +1,7 @@
 from keras.models import Model
 from keras.layers import Add, Input, concatenate, Conv2D, MaxPooling2D, Activation, UpSampling2D, BatchNormalization
 from keras.optimizers import RMSprop, Adam
+from keras import metrics
 
 from model.losses import bce_dice_loss, dice_loss, weighted_bce_dice_loss, weighted_dice_loss, dice_coeff
 
@@ -136,7 +137,7 @@ def get_unet_512_src_3(input_shape=(512, 512, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -234,7 +235,7 @@ def get_unet_512_src_k_k(input_shape=(512, 512, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -345,7 +346,7 @@ def get_unet_512_1_k(input_shape=(512, 512, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=Adam(lr=0.001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -527,7 +528,7 @@ def get_unet_1024_src_3(input_shape=(1024, 1024, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -637,7 +638,7 @@ def get_unet_1024_src_5(input_shape=(1024, 1024, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -800,7 +801,7 @@ def get_unet_1024_gcn_down_k_5(input_shape=(1024, 1024, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -932,7 +933,7 @@ def get_unet_1024_gcn_up_k_5(input_shape=(1024, 1024, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 
@@ -1042,7 +1043,7 @@ def get_unet_1024_gcn_down_up_k_5(input_shape=(1024, 1024, 3),
 
     model = Model(inputs=inputs, outputs=classify)
 
-    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff])
+    model.compile(optimizer=RMSprop(lr=0.0001), loss=bce_dice_loss, metrics=[dice_coeff,metrics.binary_accuracy,bce_dice_loss])
 
     return model
 

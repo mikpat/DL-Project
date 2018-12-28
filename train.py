@@ -149,7 +149,17 @@ callbacks = [EarlyStopping(monitor='val_loss',
                              filepath='weights/best_weights.hdf5',
                              save_best_only=True,
                              save_weights_only=True),
-             TensorBoard(log_dir="logs/{}".format(str(sys.argv[1])))]
+             TensorBoard(log_dir="logs/{}".format(str(sys.argv[1])),
+                         histogram_freq=0,
+                         batch_size=params.batch_size,
+                         write_graph=True,
+                         write_grads=True,
+                         write_images=True,
+                         embeddings_freq=0,
+                         embeddings_layer_names=None,
+                         embeddings_metadata=None,
+                         embeddings_data=None,
+                         update_freq='batch')]
 
 models[m_names.index(str(sys.argv[1]))].fit_generator(generator=train_generator(),
                                     steps_per_epoch=np.ceil(float(len(ids_train_split)) / float(batch_size)),
