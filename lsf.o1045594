@@ -1,0 +1,42 @@
+Sender: LSF System <lsfadmin@lo-s4-032>
+Subject: Job 1045594: <python train.py get_unet_512_src_3> in cluster <leonhard> Exited
+
+Job <python train.py get_unet_512_src_3> was submitted from host <lo-login-01> by user <oameln> in cluster <leonhard> at Mon Dec 24 04:10:36 2018
+Job was executed on host(s) <lo-s4-032>, in queue <gpu.120h>, as user <oameln> in cluster <leonhard> at Mon Dec 24 04:10:50 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Mon Dec 24 04:10:50 2018
+Terminated at Mon Dec 24 04:10:55 2018
+Results reported at Mon Dec 24 04:10:55 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python train.py get_unet_512_src_3
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   0.31 sec.
+    Max Memory :                                 67 MB
+    Average Memory :                             4.00 MB
+    Total Requested Memory :                     50000.00 MB
+    Delta Memory :                               49933.00 MB
+    Max Swap :                                   -
+    Max Processes :                              1
+    Max Threads :                                1
+    Run time :                                   0 sec.
+    Turnaround time :                            19 sec.
+
+The output (if any) follows:
+
+ImportError: numpy.core.multiarray failed to import
+Traceback (most recent call last):
+  File "train.py", line 1, in <module>
+    import cv2
+  File "/cluster/home/oameln/.local/lib64/python2.7/site-packages/cv2/__init__.py", line 3, in <module>
+    from .cv2 import *
+ImportError: numpy.core.multiarray failed to import
