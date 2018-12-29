@@ -1,0 +1,50 @@
+Sender: LSF System <lsfadmin@lo-s4-042>
+Subject: Job 1051392: <python train.py get_unet_512_src_k_k> in cluster <leonhard> Exited
+
+Job <python train.py get_unet_512_src_k_k> was submitted from host <lo-login-02> by user <oameln> in cluster <leonhard> at Fri Dec 28 20:47:18 2018
+Job was executed on host(s) <lo-s4-042>, in queue <gpu.24h>, as user <oameln> in cluster <leonhard> at Fri Dec 28 20:47:33 2018
+</cluster/home/oameln> was used as the home directory.
+</cluster/scratch/oameln/DL-Project> was used as the working directory.
+Started at Fri Dec 28 20:47:33 2018
+Terminated at Sat Dec 29 08:47:27 2018
+Results reported at Sat Dec 29 08:47:27 2018
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python train.py get_unet_512_src_k_k
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   63664.58 sec.
+    Max Memory :                                 6860 MB
+    Average Memory :                             4372.89 MB
+    Total Requested Memory :                     50000.00 MB
+    Delta Memory :                               43140.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                57
+    Run time :                                   43208 sec.
+    Turnaround time :                            43209 sec.
+
+The output (if any) follows:
+
+/cluster/apps/python/2.7.14/lib64/python2.7/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+2018-12-28 20:47:42.123221: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+/cluster/home/oameln/.local/lib64/python2.7/site-packages/keras/callbacks.py:1065: UserWarning: `epsilon` argument is deprecated and will be removed, use `min_delta` instead.
+  warnings.warn('`epsilon` argument is deprecated and '
+WARNING:tensorflow:From /cluster/home/oameln/.local/lib64/python2.7/site-packages/tensorflow/contrib/learn/python/learn/datasets/base.py:198: retry (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use the retry module or similar alternatives.
+Epoch 1/100
+ - 19460s - loss: 0.5967 - dice_coeff: 0.6608 - binary_accuracy: 0.9727 - bce_dice_loss: 0.5967 - val_loss: 0.4009 - val_dice_coeff: 0.7518 - val_binary_accuracy: 0.9841 - val_bce_dice_loss: 0.4009
+Epoch 2/100
+ - 19526s - loss: 0.2564 - dice_coeff: 0.8374 - binary_accuracy: 0.9896 - bce_dice_loss: 0.2564 - val_loss: 0.1592 - val_dice_coeff: 0.8973 - val_binary_accuracy: 0.9919 - val_bce_dice_loss: 0.1592
+User defined signal 2
