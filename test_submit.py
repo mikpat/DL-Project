@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
-
+import sys
 import params
 
 input_size = params.input_size
@@ -10,7 +10,9 @@ batch_size = params.batch_size
 orig_width = params.orig_width
 orig_height = params.orig_height
 threshold = params.threshold
-model = params.model_factory()
+models = params.model_factory
+m_names = params.model_names
+model = models[m_names.index(str(sys.argv[1]))]
 
 df_test = pd.read_csv('input/sample_submission.csv')
 ids_test = df_test['img'].map(lambda s: s.split('.')[0])
