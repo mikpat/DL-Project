@@ -2,12 +2,10 @@
 
 Objective: This project investigates the trade-off between training time and accuracy when one reduces a kxk convolutional layer to 1xk convolutional layer followed by a kx1 convolutional layer in a U-Net CNN architecture applied to the image segmentation task on Kaggle Carvana Image Masking Challenge.
 
----
 ## Contributions
 
 The project was done in collaboration with Erik Bertolino and Oscar Ameln for Deep Learning course at ETH Zurich. This project was based on [Heng CherKeng's code for PyTorch](https://www.kaggle.com/c/carvana-image-masking-challenge/discussion/37208) and [Petros Giannakopoulos's code for Keras](https://github.com/petrosgk/Kaggle-Carvana-Image-Masking-Challenge). 
 
----
 
 ## Introduction
 
@@ -15,7 +13,6 @@ This paper is inspired by concepts described in [Large Kernels Matters - Improve
 
 ## Models
 
----
 
 Three similar models were used based on U-Net architecture with convolutional layer with kernel sizes: 3x3, 5x5 and 1x5. 
 
@@ -29,9 +26,7 @@ Three similar models were used based on U-Net architecture with convolutional la
 
 ## Results
 
----
 
 
 ## Conclusions
 
----
