@@ -1,57 +1,37 @@
-# Kaggle Carvana Image Masking Challenge solution with Keras
-This solution was based on [Heng CherKeng's code for PyTorch](https://www.kaggle.com/c/carvana-image-masking-challenge/discussion/37208). I kindly thank him for sharing his work. 128x128, 256x256, 512x512 and 1024x1024 U-nets are implemented. Public LB scores for each U-net are:
+# Applying Ideas from Large Kernels Matters to Existing Architectures
 
-| U-net | LB score |
-| ----- | -------- |
-| 128x128 | 0.990 |
-| 256x256 | 0.992 |
-| 512x512 | 0.995 |
-| 1024x1024 | 0.996 |
+Objective: This project investigates the trade-off between training time and accuracy when one reduces a kxk convolutional layer to 1xk convolutional layer followed by a kx1 convolutional layer in a U-Net CNN architecture applied to the image segmentation task on Kaggle Carvana Image Masking Challenge.
+
+---
+## Contributions
+
+The project was done in collaboration with Erik Bertolino and Oscar Ameln for Deep Learning course at ETH Zurich. This project was based on [Heng CherKeng's code for PyTorch](https://www.kaggle.com/c/carvana-image-masking-challenge/discussion/37208) and [Petros Giannakopoulos's code for Keras](https://github.com/petrosgk/Kaggle-Carvana-Image-Masking-Challenge). 
 
 ---
 
-## Updates
+## Introduction
 
-### Update 28.8.2017
-* Added loss with weighted boundary (thanks to [lyakaap](https://www.kaggle.com/lyakaap/weighing-boundary-pixels-loss-script-by-keras2))
+This paper is inspired by concepts described in [Large Kernels Matters - Improve Image Segmentation by Global Convolution Network](https://arxiv.org/pdf/1703.02719.pdf). The authors of LKM argue that large kernels are beneficial for the accuracy, but have largely been discarded due to too long training time. The core concept is that a kxk convolutional layer can be approximated by a 1xk convolutional layer followed by a kx1 convolutional layer. The advantage of using this approximation is that the numbers of parameters are reduced from O(k^2) to O(2k). Using those two kernels reduces the number of parameters, which in turn should lead to shortened training time.
 
-### Update 15.8.2017
-* Added Hue/Saturation/Value augmentation.
-* Switched to RMSprop optimizer as default.
-* Added multithreaded inference with inference and data loading done on separate threads. This reduced inference time by 40% in my tests. You can run `test_submit_multithreaded.py` to try it.
-
-### Update 10.8.2017
-* Added 1024x1024 U-net
-* Not using *predict_generator* anymore due to memory constraints with large input
-
-### Update 9.8.2017
-* Using *Binary Crossentropy Dice Loss* in place of *Binary Crossentropy*
-* Callbacks now use *val_dice_loss* as a metric in place of *val_loss*
+## Models
 
 ---
 
-## Requirements
-* Keras 2.0 w/ TF backend
-* sklearn
-* cv2
-* tqdm
-* h5py
+Three similar models were used based on U-Net architecture with convolutional layer with kernel sizes: 3x3, 5x5 and 1x5. 
+
+![](https://raw.githubusercontent.com/mikpat/DL-Project/master/figures/DL.png)
+
+3x3 model: the encoder and decoder consists of two sequences of 3x3 convolutions, batch normalizations and ReLu activations. In between U-blocks in the encoder 2x2 max pooling is used to reduce dimensions. Number of filters doubles with each level. On the other hand, deconvolution increases resolution of feature maps in the decoder part of U-Net architecture. Finally, identity operation adds feature maps from encoder to decoder in order to combine coarse and fine features. This is shown in the Figure below.
+
+5x5 model:  all 3x3 convolutional layers are substitute by one 5x5 layer in each U-block.  
+
+1x5 model: all 5x5 convolutional layers are substituted in the second model by a 1x5 convolutional layer followed by a 5x1 convolutional layer.
+
+## Results
 
 ---
 
-## Usage
 
-### Data
-Place '*train*', '*train_masks*' and '*test*' data folders in the '*input*' folder.
+## Conclusions
 
-Convert training masks to *.png* format. You can do this with: 
-
-` mogrify -format png *.gif` 
-
-in the '*train_masks*' data folder.
-
-### Train
-Run `python train.py` to train the model.
-
-### Test and submit
-Run `python test_submit.py` to make predictions on test data and generate submission.
+---
